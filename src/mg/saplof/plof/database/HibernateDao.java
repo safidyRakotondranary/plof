@@ -5,6 +5,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Example;
 
 import java.util.List;
 
@@ -55,6 +56,7 @@ public class HibernateDao {
         try{
             session = getSessionFactory().openSession();
             Criteria criteria = session.createCriteria(this.getClass());
+            criteria.add( Example.create(this) );
             return criteria.list();
         }catch (Exception ex){
             throw ex;

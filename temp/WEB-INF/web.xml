@@ -30,13 +30,22 @@
     </filter-mapping>
 
     <servlet>
-        <servlet-name>controlLogin</servlet-name>
-        <servlet-class>mg.saplof.plof.controler.ControlLogin</servlet-class>
+        <servlet-name>Control login</servlet-name>
+        <servlet-class>mg.saplof.plof.controler.authentification.Control</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Control inscription</servlet-name>
+        <servlet-class>mg.saplof.plof.controler.authentification.Inscription</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>controlLogin</servlet-name>
-        <url-pattern>/controlLogin</url-pattern>
+        <servlet-name>Control login</servlet-name>
+        <url-pattern>/ControlLogin</url-pattern>
     </servlet-mapping>
 
+
+    <servlet-mapping>
+        <servlet-name>Control inscription</servlet-name>
+        <url-pattern>/ControlInscription</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -95,7 +95,7 @@
     <target name="jsps">
       <echo>=== DEPLOY JSP'S ===</echo>
       <!-- i'm trying to be explicit about what i put out there -->
-      <copy todir="${webapp.dir}/${jsp.dir.name}">
+      <copy todir="${webapp.dir}/${jsp.dir.name}" overwrite="true" >
         <fileset dir="${pages.dir}">
           <include name="**/*.jsp"/>
           <include name="**/*.html"/>

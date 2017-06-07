@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="mg.saplof.plof.model.percistence.Utilisateur" table="UTILISATEUR">
+      <meta attribute="class-description">
+         This class contains the utilisateur detail.
+      </meta>
+      <id name="id" column="ID_UTILISATEUR">
+         <generator class="native"/>
+      </id>
+      <property name="nom" column="NOM_UTILISATEUR" type="string"/>
+      <property name="prenom" column="PRENOM_UTILISATEUR" type="string"/>
+      <property name="sexe" column="SEXE_UTILISATEUR" type="string"/>
+      <property name="mail" column="MAIL_UTILISATEUR" type="string"/>
+      <property name="mdp" column="MDP_UTILISATEUR" type="string"/>
+      <property name="photoProfil" column="PHOTO_PROFIL_UTILISATEUR" type="string"/>
+      <property name="valide" column="VALIDE_UTILISATEUR"/>
+      <property name="type" column="TYPE_UTILISATEUR"/>
+
+   </class>
+</hibernate-mapping>
