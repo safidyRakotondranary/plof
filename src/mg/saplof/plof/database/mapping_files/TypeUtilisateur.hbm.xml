@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="mg.saplof.plof.model.percistence.TypeUtilisateur" table="TYPE_UTILISATEUR">
+      <meta attribute="class-description">
+         This class contains the type of utilisateur.
+      </meta>
+      <id name="id" column="ID_TYPE_UTILISATEUR">
+         <generator class="native"/>
+      </id>
+      <property name="label" column="LABEL_TYPE_UTILISATEUR" type="string"/>
+
+   </class>
+</hibernate-mapping>

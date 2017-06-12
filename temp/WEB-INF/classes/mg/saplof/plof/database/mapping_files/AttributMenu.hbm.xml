@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="mg.saplof.plof.model.percistence.AttributMenu" table="ATTRIBUT_MENU">
+      <meta attribute="class-description">
+         This class contains the menu attribut detail.
+      </meta>
+      <id name="id" column="ID_ATTRIBUT_MENU">
+         <generator class="native"/>
+      </id>
+      <many-to-one name="menu" column="ID_MENU"
+        class="mg.saplof.plof.model.percistence.Menu" not-null="true"/>
+
+      <many-to-one name="parent" column="ID_PARENT_ATTRIBUT_MENU"
+        class="mg.saplof.plof.model.percistence.AttributMenu" not-null="true"/>
+
+      <set name="attributMenuFils" cascade="all" lazy="false" order-by="ID_ATTRIBUT_MENU">
+        <key column="ID_PARENT_ATTRIBUT_MENU"/>
+        <one-to-many class="mg.saplof.plof.model.percistence.AttributMenu"/>
+      </set>
+
+
+      <property name="label" column="LABEL_ATTRIBUT_MENU" type="string"/>
+      <property name="lienIcone" column="LIEN_ICONE_ATTRIBUT_MENU" type="string"/>
+      <property name="lienChemin" column="LIEN_CHEMIN_ATTRIBUT_MENU" type="string"/>
+      <property name="idButton" column="ID_BUTTON_ATTRIBUT_MENU" type="string"/>
+
+
+
+   </class>
+</hibernate-mapping>

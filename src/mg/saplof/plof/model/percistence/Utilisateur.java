@@ -1,13 +1,11 @@
 package mg.saplof.plof.model.percistence;
 
 public class Utilisateur extends Personne implements Authentificable{
-  public static final int TYPE_ADMINISTRATEUR = 1;
-  public static final int TYPE_CLIENT = 2;
   public static final int VALIDE = 1;
   public static final int NON_VALIDE = 0;
 
   private String mdp;
-  private Integer type;
+  private TypeUtilisateur type;
   private Integer valide;
 
   public Utilisateur() {}
@@ -15,13 +13,13 @@ public class Utilisateur extends Personne implements Authentificable{
     super.setMail(mail);
     this.setMdp(mdp);
   }
-  public Utilisateur(String nom, String prenom, String sexe, String mail, String photoProfil, String mdp, Integer type) throws Exception{
+  public Utilisateur(String nom, String prenom, String sexe, String mail, String photoProfil, String mdp, TypeUtilisateur type) throws Exception{
     super(nom, prenom, sexe, mail, photoProfil);
     setMdp(mdp);
     setType(type);
     setValide(NON_VALIDE);
   }
-  public Utilisateur(String nom, String prenom, String sexe, String mail, String photoProfil, String mdp, Integer type, Integer valide) throws Exception{
+  public Utilisateur(String nom, String prenom, String sexe, String mail, String photoProfil, String mdp, TypeUtilisateur type, Integer valide) throws Exception{
     this(nom, prenom, sexe, mail, photoProfil,mdp,type);
     setValide(valide);
   }
@@ -30,9 +28,7 @@ public class Utilisateur extends Personne implements Authentificable{
   public void setMdp(String mdp) {
     this.mdp = mdp;
   }
-  public void setType(Integer type) throws Exception{
-    if(type != TYPE_ADMINISTRATEUR && type != TYPE_CLIENT)
-      throw new Exception("Type non autoriser, accepte seulement " + TYPE_ADMINISTRATEUR + " pour administrateur ou " + TYPE_CLIENT + " pour simple utilisateur");
+  public void setType(TypeUtilisateur type) throws Exception{
     this.type = type;
   }
   public void setValide(Integer valide) throws Exception{
@@ -48,7 +44,7 @@ public class Utilisateur extends Personne implements Authentificable{
   public String getMdp() {
     return this.mdp;
   }
-  public Integer getType() {
+  public TypeUtilisateur getType() {
     return this.type;
   }
   public Integer getValide() {

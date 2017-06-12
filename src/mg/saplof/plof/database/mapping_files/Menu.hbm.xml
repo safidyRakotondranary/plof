@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="mg.saplof.plof.model.percistence.Menu" table="MENU">
+      <meta attribute="class-description">
+         This class contains the menu detail.
+      </meta>
+      <id name="id" column="ID_MENU">
+         <generator class="native"/>
+      </id>
+      <property name="enTete" column="EN_TETE_MENU" type="string"/>
+
+      <many-to-one name="typeUtilisateur" column="ID_TYPE_UTILISATEUR" unique="true" lazy="false"
+        class="mg.saplof.plof.model.percistence.TypeUtilisateur" not-null="true"/>
+
+      <set name="attributs" cascade="all" lazy="false" order-by="ID_ATTRIBUT_MENU">
+        <key column="ID_MENU"/>
+        <one-to-many class="mg.saplof.plof.model.percistence.AttributMenu"/>
+      </set>
+
+   </class>
+</hibernate-mapping>

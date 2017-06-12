@@ -5,7 +5,10 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import mg.saplof.plof.model.percistence.Utilisateur;
+import mg.saplof.plof.model.percistence.TypeUtilisateur;
 import mg.saplof.plof.model.configuration.Configuration_jsp;
+import mg.saplof.plof.model.authentification.Model;
+
 
 public class Control extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -21,28 +24,55 @@ public class Control extends HttpServlet {
       String mdp = request.getParameter("mdp");
       String erreur = null;
 
-      Utilisateur utilisateurTemporaire = new Utilisateur(mail, mdp);
-      Utilisateur utilisateur;
+      String mdpHash = null;
+
+      String urlDispatch = null;
+
+      String titrePage = null;
+
+      TypeUtilisateur typeUtilisateur = null;
 
       RequestDispatcher reqDispatch = null;
 
       try {
+        //hashage du mot de passe avant test
+        mdpHash = Model.getHashMd5(mdp);
+
+        //login
+        Utilisateur utilisateurTemporaire = new Utilisateur(mail, mdpHash);
+        Utilisateur utilisateur;
+
         utilisateur = (Utilisateur)utilisateurTemporaire.login();
+
+        typeUtilisateur = utilisateur.getType();
 
         session.setAttribute("idUtilisateur", utilisateur.getId());
 
-        if(utilisateur.getType() == Utilisateur.TYPE_ADMINISTRATEUR)
-          reqDispatch = request.getRequestDispatcher(Configuration_jsp.URL_BASE_JSP_PROTEGE_ADMINISTRATEUR_DEPUIS_PROJET+"/index.jsp");
-        else if(utilisateur.getType() == Utilisateur.TYPE_CLIENT)
-          reqDispatch = request.getRequestDispatcher(Configuration_jsp.URL_BASE_JSP_PROTEGE_CLIENT_DEPUIS_PROJET+"/index.jsp");
+        session.setAttribute("nomUtilisateur", utilisateur.getNom());
+        session.setAttribute("photoUtilisateur", utilisateur.getPhotoProfil());
+        session.setAttribute("typeUtilisateur", utilisateur.getType());
+
+        titrePage = "Acceuil";
+
+        urlDispatch = Configuration_jsp.URL_BASE_JSP_PROTEGE+ "/" +utilisateur.getType().getLabel()+"/index.jsp";
+
 
       } catch (Exception exp) {
         erreur = exp.getMessage();
-        request.setAttribute("erreur", erreur);
-        reqDispatch = request.getRequestDispatcher(Configuration_jsp.URL_BASE_JSP_AUTHENTIFICATION_DEPUIS_PROJET+"/signin.jsp");
+        exp.printStackTrace();
+
+        titrePage = "Login";
+
+        //Doit etre dans session car si parameter ne peut pas affciher l'accent
+        session.setAttribute("erreur", erreur);
+
+        urlDispatch = Configuration_jsp.URL_BASE_JSP_AUTHENTIFICATION+"/signin.jsp";
 
       } finally {
-        reqDispatch.forward(request, response);
+        request.setAttribute("titrePage", titrePage);
+        /*reqDispatch = request.getRequestDispatcher(urlDispatch);
+        reqDispatch.forward(request, response);*/
+        response.sendRedirect(urlDispatch);
       }
     }
 }

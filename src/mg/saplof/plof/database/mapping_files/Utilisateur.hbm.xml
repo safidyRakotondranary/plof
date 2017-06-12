@@ -18,7 +18,9 @@
       <property name="mdp" column="MDP_UTILISATEUR" type="string"/>
       <property name="photoProfil" column="PHOTO_PROFIL_UTILISATEUR" type="string"/>
       <property name="valide" column="VALIDE_UTILISATEUR"/>
-      <property name="type" column="TYPE_UTILISATEUR"/>
+
+      <many-to-one name="type" column="ID_TYPE_UTILISATEUR" unique="true" lazy="false"
+        class="mg.saplof.plof.model.percistence.TypeUtilisateur" not-null="true"/>
 
    </class>
 </hibernate-mapping>

@@ -16,6 +16,8 @@
         <property name="show_sql">true</property>
 
         <mapping resource="/mg/saplof/plof/database/mapping_files/Utilisateur.hbm.xml"/>
-
+        <mapping resource="/mg/saplof/plof/database/mapping_files/Menu.hbm.xml"/>
+        <mapping resource="/mg/saplof/plof/database/mapping_files/AttributMenu.hbm.xml"/>
+        <mapping resource="/mg/saplof/plof/database/mapping_files/TypeUtilisateur.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

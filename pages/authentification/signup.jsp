@@ -1,13 +1,17 @@
 <%@page import="mg.saplof.plof.model.configuration.Configuration_base" %>
 <%@page import="mg.saplof.plof.model.configuration.Configuration_jsp" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:set var="typeUtilisateurs" value='${requestScope["typeUtilisateurs"]}' />
 
 <jsp:include page="header.jsp" flush="true"/>
 	<div class="login">
 			<div class="login-bottom">
 			<%
-				if(request.getAttribute("erreur")!=null) {
+				if(session.getAttribute("erreur")!=null) {
 					out.print("<div class=\"alert alert-danger\" role=\"alert\">");
-        		out.print("<strong>Erreur! </strong>" + request.getAttribute("erreur"));
+        		out.print("<strong>Erreur! </strong>" + session.getAttribute("erreur"));
+						session.removeAttribute("erreur");
        		out.print("</div>");
 				}
 				if(request.getAttribute("notification")!=null) {
@@ -18,7 +22,7 @@
 			%>
 			<h2>Inscription</h2>
 			<form action="<%=Configuration_base.URL_BASE_PROJET%>/ControlInscription" method="post">
-				<div class="col-md-8">
+				<div class="col-md-7">
 
 					<div class="login-mail">
 						<input type="text" name="nom" placeholder="Nom" required="">
@@ -38,8 +42,9 @@
 					<div class="login-mail">
 							<i class="fa fa-group"> type utilisateur </i>
 							<select name="type" class="form-control1">
-								<option value="1">Administrateur</option>
-								<option value="2">Client</option>
+								<c:forEach var="typeUtilisateur" items="${typeUtilisateurs}">
+									<option value="<c:out value="${typeUtilisateur.id}"/>" ><c:out value="${typeUtilisateur.label}"/></option>
+								</c:forEach>
 							</select>
 					</div>
 					<div class="login-mail">
@@ -59,7 +64,7 @@
 						<i class="fa fa-photo"></i>
 					</div>
 				</div>
-				<div class="col-md-4 login-do">
+				<div class="col-md-5 login-do">
 					<label class="hvr-shutter-in-horizontal login-sub">
 						<input type="submit" value="Submit">
 						</label>
@@ -71,4 +76,4 @@
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-<jsp:include page="footer.jsp" flush="true"/>
+<%@include file="footer.jsp"%>
