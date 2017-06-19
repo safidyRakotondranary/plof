@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="mg.saplof.plof.model.percistence.Province" table="PROVINCE">
+      <meta attribute="class-description">
+         This class contains the province detail.
+      </meta>
+      <id name="id" column="ID_PROVINCE">
+         <generator class="native"/>
+      </id>
+      <property name="nom" column="NOM_PROVINCE" type="string"/>
+      <property name="description" column="DESCRIPTION_PROVINCE" type="string"/>
+      <property name="code" column="CODE_PROVINCE" type="string"/>
+
+   </class>
+</hibernate-mapping>

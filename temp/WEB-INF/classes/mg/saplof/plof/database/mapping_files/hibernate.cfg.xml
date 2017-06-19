@@ -19,5 +19,6 @@
         <mapping resource="/mg/saplof/plof/database/mapping_files/Menu.hbm.xml"/>
         <mapping resource="/mg/saplof/plof/database/mapping_files/AttributMenu.hbm.xml"/>
         <mapping resource="/mg/saplof/plof/database/mapping_files/TypeUtilisateur.hbm.xml"/>
+        <mapping resource="/mg/saplof/plof/database/mapping_files/Consistance.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

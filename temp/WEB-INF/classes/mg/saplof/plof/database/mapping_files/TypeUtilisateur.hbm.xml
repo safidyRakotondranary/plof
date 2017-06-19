@@ -11,7 +11,7 @@
       <id name="id" column="ID_TYPE_UTILISATEUR">
          <generator class="native"/>
       </id>
-      <property name="label" column="LABEL_TYPE_UTILISATEUR" type="string"/>
+      <property name="label" column="LABELLE_TYPE_UTILISATEUR" type="string"/>
 
    </class>
 </hibernate-mapping>

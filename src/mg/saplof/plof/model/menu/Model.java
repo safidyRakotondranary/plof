@@ -4,6 +4,7 @@ import mg.saplof.plof.model.percistence.Menu;
 import mg.saplof.plof.model.percistence.AttributMenu;
 import mg.saplof.plof.model.percistence.TypeUtilisateur;
 import mg.saplof.plof.model.percistence.DataObject;
+import mg.saplof.plof.model.configuration.Configuration_base;
 import java.util.Set;
 
 public abstract class Model{
@@ -21,10 +22,10 @@ public abstract class Model{
     while(iter.hasNext()) {
       attribut = (AttributMenu)iter.next();
 
-      result += "<li id=\""+attribut.getIdButton()+"\">";
+      result += "<li>";
       //result += "<li>";
 
-        result += "<a href=\"" +attribut.getLienChemin()+ "\" class=\" hvr-bounce-to-right\">";
+        result += "<a id=\""+attribut.getIdButton()+"\" href=\""+ Configuration_base.URL_BASE_PROJET +"/"+attribut.getLienChemin()+ "\" class=\" hvr-bounce-to-right\">";
           result += "<i class=\"" +attribut.getLienIcone()+ " nav_icon\"></i>";
           result += "<span class=\"nav-label\">" +attribut.getLabel()+ "</span>";
 

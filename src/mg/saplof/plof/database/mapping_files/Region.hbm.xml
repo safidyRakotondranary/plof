@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="mg.saplof.plof.model.percistence.Region" table="REGION">
+      <meta attribute="class-description">
+         This class contains the region detail.
+      </meta>
+      <id name="id" column="ID_REGION">
+         <generator class="native"/>
+      </id>
+      <property name="nom" column="NOM_REGION" type="string"/>
+      <property name="description" column="DESCRIPTION_REGION" type="string"/>
+      <property name="code" column="CODE_REGION" type="string"/>
+
+      <many-to-one name="province" column="ID_PROVINCE" unique="true" lazy="false"
+        class="mg.saplof.plof.model.percistence.Province" not-null="true"/>
+
+   </class>
+</hibernate-mapping>

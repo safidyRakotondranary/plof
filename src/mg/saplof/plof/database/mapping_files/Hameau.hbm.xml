@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="mg.saplof.plof.model.percistence.Hameau" table="HAMEAU">
+      <meta attribute="class-description">
+         This class contains the hameau detail.
+      </meta>
+      <id name="id" column="ID_HAMEAU">
+         <generator class="native"/>
+      </id>
+      <property name="nom" column="NOM_HAMEAU" type="string"/>
+      <property name="description" column="DESCRIPTION_HAMEAU" type="string"/>
+      <property name="code" column="CODE_HAMEAU" type="string"/>
+
+      <many-to-one name="fokontany" column="ID_FOKONTANY" unique="true" lazy="false"
+        class="mg.saplof.plof.model.percistence.Fokontany" not-null="true"/>
+
+   </class>
+</hibernate-mapping>

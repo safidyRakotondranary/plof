@@ -28,6 +28,13 @@ public class MenuFilter implements Filter {
 
     try {
       session = ((HttpServletRequest)request).getSession(true);
+
+      if(session.getAttribute("menu") != null) {
+        chain.doFilter(request, response);
+        return;
+      }
+
+
       TypeUtilisateur typeUtilisateur = (TypeUtilisateur)session.getAttribute("typeUtilisateur");
 
       menu = Model.toJsp(typeUtilisateur);

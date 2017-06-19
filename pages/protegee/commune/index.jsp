@@ -10,8 +10,8 @@
         </div>
         <!--//banner-->
  	      <!--faq-->
- 	      <div class="blank">
-		       
+ 	      <div class="map-grid">
+          
         </div>
         <!--//faq-->
 <%@include file="footer.jsp"%>

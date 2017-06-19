@@ -26,7 +26,7 @@ public class InscriptionFilter implements Filter {
     try {
       List<DataObject> typeUtilisateurs = temp.findAll();
 
-      System.out.println("\n"+typeUtilisateurs.size());
+      System.out.println("\n type: "+typeUtilisateurs.size());
       ((HttpServletRequest)request).setAttribute("typeUtilisateurs", typeUtilisateurs);
       chain.doFilter(request, response);
     } catch (HibernateException exp) {

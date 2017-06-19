@@ -16,7 +16,7 @@
       <property name="sexe" column="SEXE_UTILISATEUR" type="string"/>
       <property name="mail" column="MAIL_UTILISATEUR" type="string"/>
       <property name="mdp" column="MDP_UTILISATEUR" type="string"/>
-      <property name="photoProfil" column="PHOTO_PROFIL_UTILISATEUR" type="string"/>
+      <property name="photoProfil" column="PHOTO_UTILISATEUR" type="string"/>
       <property name="valide" column="VALIDE_UTILISATEUR"/>
 
       <many-to-one name="type" column="ID_TYPE_UTILISATEUR" unique="true" lazy="false"

@@ -19,5 +19,12 @@
         <mapping resource="/mg/saplof/plof/database/mapping_files/Menu.hbm.xml"/>
         <mapping resource="/mg/saplof/plof/database/mapping_files/AttributMenu.hbm.xml"/>
         <mapping resource="/mg/saplof/plof/database/mapping_files/TypeUtilisateur.hbm.xml"/>
+        <mapping resource="/mg/saplof/plof/database/mapping_files/Consistance.hbm.xml"/>
+        <mapping resource="/mg/saplof/plof/database/mapping_files/Province.hbm.xml"/>
+        <mapping resource="/mg/saplof/plof/database/mapping_files/Region.hbm.xml"/>
+        <mapping resource="/mg/saplof/plof/database/mapping_files/District.hbm.xml"/>
+        <mapping resource="/mg/saplof/plof/database/mapping_files/Commune.hbm.xml"/>
+        <mapping resource="/mg/saplof/plof/database/mapping_files/Fokontany.hbm.xml"/>
+        <mapping resource="/mg/saplof/plof/database/mapping_files/Hameau.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

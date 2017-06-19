@@ -78,7 +78,7 @@ CREATE TABLE public.parcelle(
 CREATE TABLE public.district(
 	ID_DISTRICT         serial ,
 	NOM_DISTRICT        VARCHAR (100)  ,
-	DESCRIPTION_COMMUNE VARCHAR (2000)   ,
+	DESCRIPTION_DISTRICT VARCHAR (2000)   ,
 	CODE_DISTRICT       VARCHAR (100) NOT NULL UNIQUE,
 	ID_REGION           INT   ,
 	CONSTRAINT prk_constraint_district PRIMARY KEY (ID_DISTRICT)
@@ -117,7 +117,7 @@ CREATE TABLE public.utilisateur(
 	id_utilisateur        serial ,
 	nom_utilisateur       VARCHAR (100)  ,
 	prenom_utilisateur    VARCHAR (100)  ,
-	sexe_utilisateur      CHAR (25)   ,
+	sexe_utilisateur      CHAR (1)   ,
 	mail_utilisateur      VARCHAR (100)  ,
 	telephone_utilisateur VARCHAR (100)  ,
 	mdp_utilisateur       VARCHAR (100)  ,

@@ -24,6 +24,10 @@
     <link href="<%= Configuration_jsp.URL_BASE_CSS + "/custom.css" %>" rel="stylesheet">
     <script src="<%= Configuration_jsp.URL_BASE_JS + "/custom.js" %>"></script>
     <script src="<%= Configuration_jsp.URL_BASE_JS + "/screenfull.js" %>"></script>
+
+    <!-- OpenLayer js-->
+    <link href="<%= Configuration_jsp.URL_BASE_CSS + "/ol.css" %>" rel="stylesheet">
+
   	<script>
   		$(function () {
   			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);

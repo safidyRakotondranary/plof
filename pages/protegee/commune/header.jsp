@@ -24,6 +24,10 @@
     <link href="<%= Configuration_jsp.URL_BASE_CSS + "/custom.css" %>" rel="stylesheet">
     <script src="<%= Configuration_jsp.URL_BASE_JS + "/custom.js" %>"></script>
     <script src="<%= Configuration_jsp.URL_BASE_JS + "/screenfull.js" %>"></script>
+
+    <!-- OpenLayer -->
+    <link href="<%= Configuration_jsp.URL_BASE_CSS + "/ol.css" %>" rel="stylesheet">
+
   	<script>
   		$(function () {
   			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
@@ -38,6 +42,13 @@
 
   		});
   	</script>
+
+    <style>
+      #map:focus {
+        outline: #4A74A8 solid 0.15em;
+      }
+    </style>
+
   </head>
   <body>
     <div id="wrapper">

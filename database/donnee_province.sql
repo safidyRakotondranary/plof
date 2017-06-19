@@ -1,0 +1,5 @@
+INSERT INTO PROVINCE(NOM_PROVINCE, DESCRIPTION_PROVINCE, CODE_PROVINCE) VALUES (
+  'Antanarivo',
+  'Capital de madagascar',
+  '1'
+);
