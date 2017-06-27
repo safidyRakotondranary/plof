@@ -97,6 +97,15 @@
         <servlet-name>Deconnexion</servlet-name>
         <servlet-class>mg.saplof.plof.controler.authentification.Deconnexion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreationProprietaire</servlet-name>
+        <servlet-class>mg.saplof.plof.controler.certificat.CreationProprietaire</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreationDemande</servlet-name>
+        <servlet-class>mg.saplof.plof.controler.certificat.CreationDemande</servlet-class>
+    </servlet>
+
 
     <servlet-mapping>
         <servlet-name>Control login</servlet-name>
@@ -111,6 +120,15 @@
     <servlet-mapping>
         <servlet-name>Deconnexion</servlet-name>
         <url-pattern>/Deconnexion</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CreationProprietaire</servlet-name>
+        <url-pattern>/CreationProprietaire</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreationDemande</servlet-name>
+        <url-pattern>/CreationDemande</url-pattern>
     </servlet-mapping>
 
     <error-page>
